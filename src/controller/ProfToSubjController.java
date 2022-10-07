@@ -25,7 +25,7 @@ public class ProfToSubjController {
 	
 	public boolean assignProfToSubj(int idProf, int idSubj) {
 		
-		String query = "INSERT INTO mglavina.ProfToSubj(ProfessorID, SubjectID) VALUES("+idProf+", "+idSubj+")";
+		String query = "INSERT INTO schoolmenegment.ProfToSubj(ProfessorID, SubjectID) VALUES("+idProf+", "+idSubj+")";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -41,9 +41,9 @@ public class ProfToSubjController {
 	public List<String> getAll(){
 		List<String> profToSubjList = new ArrayList();
 		
-		String query = "SELECT Profesor.profesoreName, Profesor.profesorSurname, Subjects.subjectName, ProfToSubj.SubjectID FROM mglavina.ProfToSubj "
-				+ "LEFT JOIN mglavina.Profesor on Profesor.ID = ProfToSubj.ProfessorID "
-				+ "LEFT JOIN mglavina.Subjects on Subjects.ID = ProfToSubj.SubjectID ";
+		String query = "SELECT Profesor.profesoreName, Profesor.profesorSurname, Subjects.subjectName, ProfToSubj.SubjectID FROM schoolmenegment.ProfToSubj "
+				+ "LEFT JOIN schoolmenegment.Profesor on Profesor.ID = ProfToSubj.ProfessorID "
+				+ "LEFT JOIN schoolmenegment.Subjects on Subjects.ID = ProfToSubj.SubjectID ";
 		String subjectID="";
 		String numOfStudents="";
 		
@@ -57,7 +57,7 @@ public class ProfToSubjController {
 					subjectID = rs.getString(4);
 					try {
 						
-						String querySubject = "Select COUNT(StudToSubj.StudentID) From mglavina.StudToSubj where SubjectID = "+subjectID;
+						String querySubject = "Select COUNT(StudToSubj.StudentID) From schoolmenegment.StudToSubj where SubjectID = "+subjectID;
 						Connection connn = Database.getConnection();
 						PreparedStatement stmt1 = connn.prepareStatement(querySubject);
 						

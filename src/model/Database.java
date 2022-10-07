@@ -18,10 +18,9 @@ import java.sql.Statement;
 
 public class Database {
 	
-	public final static String url = "jdbc:mysql://ucka.veleri.hr:3306";
-	public final static String username ="mglavina";
-	public final static String password = "11";
-	public final static String port = "3306";
+	public final static String url = "jdbc:mysql://localhost:3306";
+	public final static String username ="root";
+	public final static String password = "";
 	
 	public static Connection getConnection() {
 		
@@ -47,9 +46,6 @@ public class Database {
 	}
 	public String getPassword() {
 		return password;
-	}
-	public String getPort() {
-		return port;
 	}
 	
 	

@@ -18,7 +18,7 @@ public class ProfesorController {
 		
 		Profesor profesor = new Profesor( profesorName, profesorSurname);
 		
-		String query ="INSERT INTO mglavina.Profesor"+
+		String query ="INSERT INTO schoolmenegment.Profesor"+
 				"(profesoreName, profesorSurname, profesorUsername, profesorPassword)"
 				+"VALUES('"
 				+ profesor.getProfesorName() +"','"
@@ -44,7 +44,7 @@ public class ProfesorController {
 	public List<String> getAllProfessors(){
 		List<String> professorList = new ArrayList();
 		
-		String query = "SELECT * FROM mglavina.Profesor";
+		String query = "SELECT * FROM schoolmenegment.Profesor";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -72,7 +72,7 @@ public class ProfesorController {
 		
 		char [] pName = profesorName.toCharArray();
 		
-		String query ="UPDATE mglavina.Profesor SET"+
+		String query ="UPDATE schoolmenegment.Profesor SET"+
 		" profesoreName ='"+ profesorName +
 		"', profesorSurname = '" + profesorSurname+
 		"', profesorUsername ='"+ String.copyValueOf(pName,0, 1).toLowerCase()+profesorSurname.toLowerCase()+
@@ -97,7 +97,7 @@ public class ProfesorController {
 	public List<String> getProfessorsIDNameAndSurname(){
 		List<String> professorList = new ArrayList();
 		
-		String query = "SELECT ID, profesoreName, profesorSurname FROM mglavina.Profesor";
+		String query = "SELECT ID, profesoreName, profesorSurname FROM schoolmenegment.Profesor";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -124,7 +124,7 @@ public class ProfesorController {
 	public List<String> getProfessorsNameAndSurname(){
 		List<String> professorList = new ArrayList();
 		
-		String query = "SELECT profesoreName, profesorSurname FROM mglavina.Profesor";
+		String query = "SELECT profesoreName, profesorSurname FROM schoolmenegment.Profesor";
 		
 		try {
 			Connection conn = Database.getConnection();

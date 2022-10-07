@@ -148,6 +148,11 @@ public class AdminPanel {
 		studToSubjBtn.setBounds(10, 385, 200, 60);
 		mainPageAdmin.add(studToSubjBtn);
 		
+		JButton adminLogOut = new JButton("Log out");
+		adminLogOut.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		adminLogOut.setBounds(534, 30, 89, 23);
+		mainPageAdmin.add(adminLogOut);
+		
 		JLabel lblNewLabel = new JLabel("Name");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel.setBounds(51, 40, 88, 28);
@@ -429,6 +434,15 @@ public class AdminPanel {
 		sTsBackBtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		sTsBackBtn.setBounds(564, 23, 89, 23);
 		studToSubjAdmin.add(sTsBackBtn);
+		
+		adminLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				MainPage.main(null);
+				frame.dispose();
+				
+			}
+		});
 //		
 //		
 //		

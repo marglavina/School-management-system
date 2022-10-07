@@ -16,7 +16,7 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 		
 		Student student = new Student( studentName, studentSurname);
 		
-		String query ="INSERT INTO mglavina.Student"+
+		String query ="INSERT INTO schoolmenegment.Student"+
 				"(studentName, studentSurname, studentUsername, studentPassword)"
 				+"VALUES('"
 				+ student.getStudentName() +"','"
@@ -42,7 +42,7 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 	public List<String> getAllStudents(){
 		List<String> studentList = new ArrayList();
 		
-		String query = "SELECT * FROM mglavina.Student";
+		String query = "SELECT * FROM schoolmenegment.Student";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -70,7 +70,7 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 		
 		char [] pName = studentName.toCharArray();
 		
-		String query ="UPDATE mglavina.Student SET"+
+		String query ="UPDATE schoolmenegment.Student SET"+
 		" studentName ='"+ studentName +
 		"', studentSurname = '" + studentSurname+
 		"', studentUsername ='"+ String.copyValueOf(pName,0, 1).toLowerCase()+studentSurname.toLowerCase()+
@@ -94,7 +94,7 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 	public List<String> getStudentsIDNameAndSurname(){
 		List<String> studentList = new ArrayList();
 		
-		String query = "SELECT ID, studentName, studentSurname FROM mglavina.Student";
+		String query = "SELECT ID, studentName, studentSurname FROM schoolmenegment.Student";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -121,7 +121,7 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 	public List<String> getStudentsNameAndSurname(){
 		List<String> studentList = new ArrayList();
 		
-		String query = "SELECT studentName, studentSurname FROM mglavina.Student";
+		String query = "SELECT studentName, studentSurname FROM schoolmenegment.Student";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -143,5 +143,37 @@ public boolean addNewStudent(char[]studentName, String studentSurname) {
 			studentList = null;
 			return studentList;
 		}
+	}
+	
+	public List<String> getStudentInfobyUsername(String username){
+		
+		List<String> studentInfo = new ArrayList();
+		
+		
+				
+		String query = "SELECT studentName, studentSurname, studentUsername, studentPassword  FROM schoolmenegment.Student WHERE studentUsername ='"+username+"'";
+		
+		try {
+			Connection conn = Database.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(query);
+			try{
+				ResultSet rs = stmt.executeQuery();
+			
+				while(rs.next()) {
+					studentInfo.add(rs.getString(1)+", "+rs.getString(2)+", "+rs.getString(3)+", "+rs.getString(4));
+				}
+			
+			}catch(SQLException e1) {
+				System.out.println(e1);
+			}
+			
+			return studentInfo ;
+			
+		}catch(SQLException e) {
+			studentInfo = null;
+			return studentInfo;
+		}
+		
+		
 	}
 }

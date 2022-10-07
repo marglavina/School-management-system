@@ -24,7 +24,7 @@ public class StudentToSubjController {
 	
 	public boolean assignStudToSubj(int idStud, int idSubj) {
 		
-		String query = "INSERT INTO mglavina.StudToSubj(StudentID, SubjectID) VALUES("+idStud+", "+idSubj+")";
+		String query = "INSERT INTO schoolmenegment.StudToSubj(StudentID, SubjectID) VALUES("+idStud+", "+idSubj+")";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -40,9 +40,9 @@ public class StudentToSubjController {
 	public List<String> getAll(){
 		List<String> studToSubjList = new ArrayList();
 		
-		String query = "SELECT Student.studentName, Student.studentSurname, Subjects.subjectName FROM mglavina.StudToSubj "
-				+ "LEFT JOIN mglavina.Student on Student.ID = StudToSubj.StudentID "
-				+ "LEFT JOIN mglavina.Subjects on Subjects.ID = StudToSubj.SubjectID";
+		String query = "SELECT Student.studentName, Student.studentSurname, Subjects.subjectName FROM schoolmenegment.StudToSubj "
+				+ "LEFT JOIN schoolmenegment.Student on Student.ID = StudToSubj.StudentID "
+				+ "LEFT JOIN schoolmenegment.Subjects on Subjects.ID = StudToSubj.SubjectID";
 		
 		try {
 			Connection conn = Database.getConnection();

@@ -21,7 +21,7 @@ public class KolegijController {
 	{
 		kolegij = new Kolegij(subjectName, yearOfSubject, uniqueSubjectName);
 		
-		String query ="INSERT INTO mglavina.Subjects " + "(subjectName, yearOfSubject, uniqueSubjectName) "
+		String query ="INSERT INTO schoolmenegment.Subjects " + "(subjectName, yearOfSubject, uniqueSubjectName) "
 				+ "VALUES('"+subjectName+"', "+yearOfSubject+", '"+uniqueSubjectName+"' )";
 						
 		try {
@@ -42,7 +42,7 @@ public class KolegijController {
 	public List<String> getAllSubjects(){
 		List<String> subjectList = new ArrayList();
 		
-		String query = "SELECT * FROM mglavina.Subjects";
+		String query = "SELECT * FROM schoolmenegment.Subjects";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -68,7 +68,7 @@ public class KolegijController {
 	
 	public boolean updateSubject(int id, String subjectName, int yearOfSubject, String uniqueSubjectName) {
 		
-		String query ="UPDATE mglavina.Subjects SET"+
+		String query ="UPDATE schoolmenegment.Subjects SET"+
 		" subjectName ='"+ subjectName +
 		"', yearOfSubject ="+yearOfSubject+
 		", uniqueSubjectName ='"+uniqueSubjectName+
@@ -92,7 +92,7 @@ public class KolegijController {
 	public List<String> getSubjectIDandName(){
 		List<String> subjectList = new ArrayList();
 		
-		String query = "SELECT ID, subjectName FROM mglavina.Subjects";
+		String query = "SELECT ID, subjectName FROM schoolmenegment.Subjects";
 		
 		try {
 			Connection conn = Database.getConnection();
@@ -118,7 +118,7 @@ public class KolegijController {
 	public List<String> getSubjectName(){
 		List<String> subjectList = new ArrayList();
 		
-		String query = "SELECT subjectName FROM mglavina.Subjects";
+		String query = "SELECT subjectName FROM schoolmenegment.Subjects";
 		
 		try {
 			Connection conn = Database.getConnection();

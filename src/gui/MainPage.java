@@ -4,9 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import controller.StudentController;
 import controller.UserController;
 
 import javax.swing.JButton;
@@ -24,8 +27,9 @@ public class MainPage {
 	private int windowW;
 	
 	//public
-	public UserController userController;
+	public UserController uc;
 	public AdminPanel adminP;
+	public StudentController sc;
 
 	/**
 	 * Launch the application.
@@ -54,6 +58,7 @@ public class MainPage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		
 		
 		frame = new JFrame();
@@ -95,11 +100,36 @@ public class MainPage {
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				if(username.getText().equals("admin")&&password.getText().equals("admin"))
-					{
+				boolean check = false;
+				
+				String usernames = username.getText().toString();
+				String passwords = password.getText().toString();
+				
+				if(username.getText().equals("admin")&&password.getText().equals("admin")){
 					frame.dispose();
 					adminP.main(null);
-					}
+				}
+				else if(!usernames.equals("")&&!passwords.equals("")){
+					uc = new UserController();
+					check = uc.checkUserAndPass(usernames,passwords);
+				}else if(usernames.equals("")||passwords.equals("")){
+					JOptionPane.showMessageDialog(frame, "All fiealds must be entered.");
+				}
+				
+				if(check) {
+					
+					
+					StudentPanel sp = new StudentPanel();
+					sc = new StudentController();
+					sp.UpdateStudentPanel(sc.getStudentInfobyUsername(usernames));
+					sp.setVisible(true);
+					frame.dispose();
+					
+					
+				}else {
+					JOptionPane.showMessageDialog(frame, "Wrong username or password.");
+					
+				}
 					
 			}
 		});
