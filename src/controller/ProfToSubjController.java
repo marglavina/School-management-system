@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.sql.Connection;
 
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Database;
+import Model.Database;
 
 
 //Create table ProfessorTeaches (

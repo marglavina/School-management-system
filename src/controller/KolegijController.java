@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import model.Database;
-import model.Kolegij;
+import Model.Database;
+import Model.Kolegij;
 
 public class KolegijController {
 	

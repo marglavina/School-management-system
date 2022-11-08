@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Database;
-import model.Student;
+import Model.Database;
+import Model.Student;
 
 public class StudentController {
 public boolean addNewStudent(char[]studentName, String studentSurname) {

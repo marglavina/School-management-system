@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,6 +23,7 @@ public class Database {
 	public final static String password = "";
 	
 	public static Connection getConnection() {
+		
 		
 		Connection conn = null;
 		

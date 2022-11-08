@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 //CREATE TABLE  `mglavina`.`Subjects` (
 //		  `ID` int(11) NOT NULL AUTO_INCREMENT,

@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Database;
-import model.Profesor;
+import Model.Database;
+import Model.Profesor;
 
 public class ProfesorController {
 	
